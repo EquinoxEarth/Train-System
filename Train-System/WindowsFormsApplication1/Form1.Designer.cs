@@ -32,10 +32,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.trainView = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // label1
@@ -74,51 +73,40 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "placeholder4";
             // 
-            // label5
-            // 
-            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label5.Location = new System.Drawing.Point(12, 132);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(560, 220);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "gridView placeholder";
-            // 
             // label6
             // 
             this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label6.Location = new System.Drawing.Point(12, 93);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(183, 23);
+            this.label6.Size = new System.Drawing.Size(270, 23);
             this.label6.TabIndex = 5;
             this.label6.Text = "button1";
-            // 
-            // label7
-            // 
-            this.label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label7.Location = new System.Drawing.Point(201, 93);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(183, 23);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "button2";
             // 
             // label8
             // 
             this.label8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label8.Location = new System.Drawing.Point(389, 93);
+            this.label8.Location = new System.Drawing.Point(302, 93);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(183, 23);
+            this.label8.Size = new System.Drawing.Size(270, 23);
             this.label8.TabIndex = 7;
             this.label8.Text = "button3";
+            // 
+            // trainView
+            // 
+            this.trainView.Location = new System.Drawing.Point(12, 138);
+            this.trainView.Name = "trainView";
+            this.trainView.Size = new System.Drawing.Size(560, 211);
+            this.trainView.TabIndex = 8;
+            this.trainView.UseCompatibleStateImageBehavior = false;
             // 
             // trainSystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 361);
+            this.Controls.Add(this.trainView);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -135,10 +123,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ListView trainView;
 
     }
 }
