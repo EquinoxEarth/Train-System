@@ -1,4 +1,4 @@
-﻿namespace TrainSystem
+﻿namespace WindowsFormsApplication1
 {
     partial class MainMenu
     {
@@ -31,11 +31,12 @@
             this.cmdSchedule = new System.Windows.Forms.Button();
             this.cmdTrains = new System.Windows.Forms.Button();
             this.cmdMap = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // cmdSchedule
             // 
-            this.cmdSchedule.Location = new System.Drawing.Point(54, 205);
+            this.cmdSchedule.Location = new System.Drawing.Point(91, 137);
             this.cmdSchedule.Name = "cmdSchedule";
             this.cmdSchedule.Size = new System.Drawing.Size(172, 23);
             this.cmdSchedule.TabIndex = 0;
@@ -44,7 +45,7 @@
             // 
             // cmdTrains
             // 
-            this.cmdTrains.Location = new System.Drawing.Point(54, 234);
+            this.cmdTrains.Location = new System.Drawing.Point(91, 166);
             this.cmdTrains.Name = "cmdTrains";
             this.cmdTrains.Size = new System.Drawing.Size(172, 23);
             this.cmdTrains.TabIndex = 1;
@@ -53,18 +54,29 @@
             // 
             // cmdMap
             // 
-            this.cmdMap.Location = new System.Drawing.Point(54, 263);
+            this.cmdMap.Location = new System.Drawing.Point(91, 195);
             this.cmdMap.Name = "cmdMap";
             this.cmdMap.Size = new System.Drawing.Size(172, 23);
             this.cmdMap.TabIndex = 2;
             this.cmdMap.Text = "View Map";
             this.cmdMap.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(13, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(329, 110);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Train Management System";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(280, 411);
+            this.ClientSize = new System.Drawing.Size(354, 233);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.cmdMap);
             this.Controls.Add(this.cmdTrains);
             this.Controls.Add(this.cmdSchedule);
@@ -79,5 +91,6 @@
         private System.Windows.Forms.Button cmdSchedule;
         private System.Windows.Forms.Button cmdTrains;
         private System.Windows.Forms.Button cmdMap;
+        private System.Windows.Forms.Label label1;
     }
 }
