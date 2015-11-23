@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace TrainSystem.Classes
 {
+    /// <summary>
+    /// Super class for Schedule, Station, Train, and Direction. Contains the methods for dealing with
+    /// the list of ScheduleRecord objects that is contained in this class.  
+    /// </summary>
     class RecordedItem: DisplayItem
     {
         private String name;
@@ -45,6 +49,11 @@ namespace TrainSystem.Classes
             s.remove();
         }
 
+        /// <summary>
+        /// When ever this method is called it checks to see if any of the records in its list have been removed
+        /// and if any are they are removed from this objects List of ScheduleRecord objects.
+        /// </summary>
+        /// <returns></returns>
         public List<ScheduleRecord> GetRecords()
         {
             foreach (ScheduleRecord s in records)
