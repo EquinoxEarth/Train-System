@@ -138,7 +138,7 @@ namespace TrainSystem.Classes
             return true;
         }
         /// <summary>
-        /// 
+        /// Gets all the records while removing the ones that have been removed previously.
         /// </summary>
         /// <returns></returns>
         public List<ScheduleRecord> GetAllRecords()
@@ -171,6 +171,7 @@ namespace TrainSystem.Classes
             {
                 if (showTimes)
                 {
+                    selected.Add((RecordedItem)d);
                     foreach (ScheduleRecord res in ((RecordedItem)d).GetRecords())
                     {
                         Boolean enter = true;
@@ -189,17 +190,36 @@ namespace TrainSystem.Classes
                 }
                 else
                 {
-                    result = GetRelatedItems(selected, (RecordedItem)d, typeToShow);
+                    result = GetRelatedItems(typeToShow);
                 }
-                selected.Add((RecordedItem)d);
             }
             return result;
         }
 
-        private List<DisplayItem> GetRelatedItems(List<RecordedItem> recs, RecordedItem rec, Type t)
+        /// <summary>
+        /// Returns a list of DisplayItem objects that are actually all RecordedItem objects that share similar
+        /// ScheduleRecord objects and are of the type provided.
+        /// </summary>
+        /// <param name="t"></param>
+        /// <returns></returns>
+
+        private List<DisplayItem> GetRelatedItems(Type t)
         {
             List<DisplayItem> result = new List<DisplayItem>();
-            
+            foreach (ScheduleRecord s in records)
+            {
+                foreach (RecordedItem r in selected)
+                {
+                    foreach (RecordedItem d in s.GetRelated())
+                    {
+                        if (d.Equals(r) && !result.Contains(d) && d.GetType() == t)
+                        {
+                            result.Add(d);
+                        }
+                    }
+                    
+                }
+            }
             return result;
         }
     }

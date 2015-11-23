@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TrainSystem.Classes
 {
-    class DisplayItem
+    abstract class DisplayItem
     {
         private Boolean canSelect;
         private int id;
@@ -38,9 +38,14 @@ namespace TrainSystem.Classes
 
         public abstract override string ToString();
 
-        public override Boolean Equals(DisplayItem s)
+        /// <summary>
+        /// Used for comparing all DisplayItems to each other.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public override Boolean Equals(Object s)
         {
-            if (this.id == s.GetId())
+            if (s.GetType() == typeof(DisplayItem) && this.id == ((DisplayItem)s).GetId())
             {
                 return true;
             }

@@ -25,9 +25,9 @@ namespace TrainSystem.Classes
             this.removed = false;
         }
 
-        public List<DisplayItem> GetRelated()
+        public List<RecordedItem> GetRelated()
         {
-            List<DisplayItem> result = new List<DisplayItem>();
+            List<RecordedItem> result = new List<RecordedItem>();
             result.Add(schedule);
             result.Add(station);
             result.Add(train);
@@ -57,7 +57,7 @@ namespace TrainSystem.Classes
 
         public override string ToString()
         {
-            return this.time.ToString();
+            return (time / 60) + ": " + ((time % 60) / 10) + (time % 10) ;
         }
     }
 }
