@@ -152,12 +152,12 @@ namespace TrainSystem.Classes
         /// that are related to what DisplayItem was selected and what has been selected before hand.
         /// If the boolean is true it will display the records that are shared by all the selected DisplayItems.
         /// </summary>
-        /// <param name="selected"></param>
+        /// <param name="d"></param>
         /// <param name="typeToShow"></param>
         /// <param name="showTimes"></param>
         /// <returns></returns>
 
-        public List<DisplayItem> Select(DisplayItem selected, Type typeToShow, Boolean showTimes)
+        public List<DisplayItem> Select(DisplayItem d, Type typeToShow, Boolean showTimes)
         {
             List<DisplayItem> result = new List<DisplayItem>();
             if (d.CanSelect())
@@ -182,7 +182,7 @@ namespace TrainSystem.Classes
                 }
                 else
                 {
-                    result = GetRelatedItems(selected, (RecordedItem)d, t);
+                    result = GetRelatedItems(selected, (RecordedItem)d, typeToShow);
                 }
                 selected.Add((RecordedItem)d);
             }
