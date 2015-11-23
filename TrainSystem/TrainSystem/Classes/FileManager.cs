@@ -61,7 +61,7 @@ namespace TrainSystem.Classes
 
                 return false;
             }
-            catch (Exception ex)
+            catch (IOException ex)
             {
                 Console.Write(ex.Message);
 
@@ -75,8 +75,30 @@ namespace TrainSystem.Classes
 
         public bool Save(string fileName)
         {
+            // Create Empty Writer (For Scope reasons) //
+            StreamWriter sw = null;
 
-            return true;
+            // Try Catch to find any file errors //
+            try
+            {
+                // Create the Writer (NON APPENDING, IS THIS AN ISSUE? //
+                sw = new StreamWriter("./" + fileName + ".csv");
+
+                // Write all Records to file //
+                // NEEDS TO BE IMPLEMENTED //
+
+                return true;
+            }
+            catch (IOException ex)
+            {
+                Console.Write(ex.Message);
+
+                return false;
+            }
+            finally
+            {
+                sw.Close();
+            }
         }
     }
 }
