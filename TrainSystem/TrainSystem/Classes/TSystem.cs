@@ -122,5 +122,16 @@ namespace TrainSystem.Classes
             }
             return result;
         }
+
+        public Boolean AddRecord(String schedule, String station, String train, String direction, int time)
+        {
+            ScheduleRecord rec = new ScheduleRecord(time);
+            GetOrCreateSchedule(schedule).AddRecord(rec);
+            GetOrCreateStation(station).AddRecord(rec);
+            GetOrCreateTrain(train).AddRecord(rec);
+            GetOrCreateDirection(direction).AddRecord(rec);
+            records.Add(rec);
+            return true;
+        }
     }
 }
