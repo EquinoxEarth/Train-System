@@ -38,5 +38,19 @@ namespace TrainSystem.Classes
                 records.Add(s);
             }            
         }
+
+        public void RemoveRecord(ScheduleRecord s)
+        {
+            records.Remove(s);
+            s.remove();
+        }
+
+        public void remove()
+        {
+            foreach (ScheduleRecord s in records)
+            {
+                s.remove();
+            }
+        }
     }
 }

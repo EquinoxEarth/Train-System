@@ -21,5 +21,15 @@ namespace TrainSystem.Classes
         {
             return time;
         }
+
+        public Boolean IsRemoved()
+        {
+            return removed;
+        }
+
+        public void remove()
+        {
+            removed = true;
+        }
     }
 }

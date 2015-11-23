@@ -14,5 +14,7 @@ namespace TrainSystem.Classes
         {
             this.canSelect = canSelect;
         }
+
+        public abstract void remove();
     }
 }
