@@ -145,5 +145,35 @@ namespace TrainSystem.Classes
             }
             return records;
         }
+
+        public List<DisplayItem> Select(DisplayItem d, List<RecordedItem> recItems)
+        {
+            List<DisplayItem> result = new List<DisplayItem>();
+            if (d.CanSelect())
+            {
+                result = GetRelatedItems(selected, (RecordedItem)d);
+                selected.Add((RecordedItem)d);
+            }
+            return result;
+        }
+
+        private List<DisplayItem> GetRelatedItems(List<RecordedItem> recs, RecordedItem rec)
+        {
+            List<DisplayItem> result = new List<DisplayItem>();
+            foreach (RecordedItem r in recs)
+            {
+                foreach (ScheduleRecord s1 in rec.GetRecords())
+                {
+                    foreach (ScheduleRecord s2 in r.GetRecords())
+                    {
+                        if (!result.Contains(r) && s1.Equals(s2))
+                        {
+                            result.Add(r);
+                        }
+                    }
+                }
+            }
+            return result;
+        }
     }
 }

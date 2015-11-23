@@ -15,6 +15,11 @@ namespace TrainSystem.Classes
             this.canSelect = canSelect;
         }
 
+        public Boolean CanSelect()
+        {
+            return canSelect;
+        }
+
         public abstract void remove();
     }
 }
