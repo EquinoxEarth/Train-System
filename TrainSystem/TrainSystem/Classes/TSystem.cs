@@ -149,11 +149,7 @@ namespace TrainSystem.Classes
         public List<DisplayItem> Select(DisplayItem d)
         {
             List<DisplayItem> result = new List<DisplayItem>();
-            if (d.CanSelect())
-            {
-                result = GetRelatedItems(selected, (RecordedItem)d);
-                selected.Add((RecordedItem)d);
-            }
+            
             return result;
         }
 
