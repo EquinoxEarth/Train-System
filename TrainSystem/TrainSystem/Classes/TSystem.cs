@@ -48,5 +48,56 @@ namespace TrainSystem.Classes
             }
             return result;
         }
+
+        public Station GetOrCreateStation(String name)
+        {
+            Station result = null;
+            foreach (Station t in stations)
+            {
+                if (t.GetName().Equals(name))
+                {
+                    result = t;
+                }
+            }
+            if (result == null)
+            {
+                result = new Station(name);
+            }
+            return result;
+        }
+
+        public Schedule GetOrCreateSchedule(String name)
+        {
+            Schedule result = null;
+            foreach (Schedule t in schedules)
+            {
+                if (t.GetName().Equals(name))
+                {
+                    result = t;
+                }
+            }
+            if (result == null)
+            {
+                result = new Schedule(name);
+            }
+            return result;
+        }
+
+        public Direction GetOrCreateDirection(String name)
+        {
+            Direction result = null;
+            foreach (Direction t in directions)
+            {
+                if (t.GetName().Equals(name))
+                {
+                    result = t;
+                }
+            }
+            if (result == null)
+            {
+                result = new Direction(name);
+            }
+            return result;
+        }
     }
 }
