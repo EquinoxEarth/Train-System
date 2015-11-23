@@ -26,6 +26,10 @@ namespace TrainSystem.Classes
             return name;
         }
 
+        /// <summary>
+        /// Adds the records with the earlier records being earlier in the list.
+        /// </summary>
+        /// <param name="s"></param>
         public void AddRecord(ScheduleRecord s)
         {
             Boolean inserted = false;

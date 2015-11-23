@@ -39,6 +39,10 @@ namespace TrainSystem.Classes
             return result;
         }
 
+        /// <summary>
+        /// Used to help sort the records.
+        /// </summary>
+        /// <returns></returns>
         public int GetTime()
         {
             return time;

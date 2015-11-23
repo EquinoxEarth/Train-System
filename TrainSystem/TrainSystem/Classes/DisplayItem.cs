@@ -12,6 +12,9 @@ namespace TrainSystem.Classes
         private int id;
         private static int currentId;
 
+        /// <summary>
+        /// Initializes the id number that will be used by all DisplayItems to identify themselves.
+        /// </summary>
         static DisplayItem()
         {
             currentId = 0;
@@ -29,6 +32,11 @@ namespace TrainSystem.Classes
             return this.id;
         }
 
+        /// <summary>
+        /// Returns whether or not this class can be selected and used to narrow the possiblities of records
+        /// that apply.  Whether or not this is a RecordedItem.
+        /// </summary>
+        /// <returns></returns>
         public Boolean CanSelect()
         {
             return canSelect;
