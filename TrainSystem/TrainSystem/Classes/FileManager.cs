@@ -85,7 +85,15 @@ namespace TrainSystem.Classes
                 sw = new StreamWriter("./" + fileName + ".csv");
 
                 // Write all Records to file //
-                // NEEDS TO BE IMPLEMENTED //
+                List<ScheduleRecord> recordList = trainSystem.GetAllRecords();
+                foreach (ScheduleRecord record in recordList)
+                {
+                    // Grab string for writing (INCASE WE NEED THIS TO BE EDITED) //
+                    string line = record.GetRecordToSave();
+
+                    // Write the Record //
+                    sw.WriteLine(line);
+                }
 
                 return true;
             }
