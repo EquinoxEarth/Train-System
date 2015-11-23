@@ -20,6 +20,9 @@ namespace TrainSystem.Classes
         private String mode;
         private int step;
 
+        /// <summary>
+        /// Creates an instance of the Train Data Manager
+        /// </summary>
         public TSystem()
         {
             selected = new List<RecordedItem>();
@@ -32,6 +35,11 @@ namespace TrainSystem.Classes
             step = 0;
         }
 
+        /// <summary>
+        /// Finds a Train with the supplied name, if it can't find one it creates one with the supplied name
+        /// </summary>
+        /// <param name="name">Name to search for</param>
+        /// <returns>Train that was found/created</returns>
         public Train GetOrCreateTrain(String name)
         {
             Train result = null;
@@ -49,6 +57,11 @@ namespace TrainSystem.Classes
             return result;
         }
 
+        /// <summary>
+        /// Finds a Station with the supplied name, if it can't find one it creates one with the supplied name
+        /// </summary>
+        /// <param name="name">Name to search for</param>
+        /// <returns>Station that was found/created</returns>
         public Station GetOrCreateStation(String name)
         {
             Station result = null;
@@ -66,6 +79,11 @@ namespace TrainSystem.Classes
             return result;
         }
 
+        /// <summary>
+        /// Finds a Schedule with the supplied name, if it can't find one it creates one with the supplied name
+        /// </summary>
+        /// <param name="name">Name to search for</param>
+        /// <returns>Schedule that was found/created</returns>
         public Schedule GetOrCreateSchedule(String name)
         {
             Schedule result = null;
@@ -83,6 +101,11 @@ namespace TrainSystem.Classes
             return result;
         }
 
+        /// <summary>
+        /// Finds a Direction with the supplied name, if it can't find one it creates one with the supplied name
+        /// </summary>
+        /// <param name="name">Name to search for</param>
+        /// <returns>Direction that was found/created</returns>
         public Direction GetOrCreateDirection(String name)
         {
             Direction result = null;
