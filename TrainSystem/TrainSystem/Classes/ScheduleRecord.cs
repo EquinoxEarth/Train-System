@@ -25,6 +25,16 @@ namespace TrainSystem.Classes
             this.removed = false;
         }
 
+        public List<DisplayItem> GetRelated()
+        {
+            List<DisplayItem> result = new List<DisplayItem>();
+            result.Add(schedule);
+            result.Add(station);
+            result.Add(train);
+            result.Add(dir);
+            return result;
+        }
+
         public int GetTime()
         {
             return time;
