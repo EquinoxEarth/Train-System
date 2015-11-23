@@ -61,7 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\FileManager.cs" />
-    <Compile Include="Classes\TrainSystem.cs" />
+    <Compile Include="Classes\TSystem.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

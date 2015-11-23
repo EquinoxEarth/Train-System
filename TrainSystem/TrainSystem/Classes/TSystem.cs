@@ -9,7 +9,7 @@ namespace TrainSystem.Classes
     /// <summary>
     /// Contains all runtime variables and commands used in the Train Management System
     /// </summary>
-    class TrainSystem
+    class TSystem
     {
     }
 }

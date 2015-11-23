@@ -6,10 +6,20 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Collections;
 
-namespace TrainSystem
+namespace TrainSystem.Classes
 {
     class FileManager
     {
+        private TSystem trainSystem;
+
+        /// <summary>
+        /// Creates an instance of the File Manager
+        /// </summary>
+        public FileManager()
+        {
+            
+        }
+
         /// <summary>
         /// Loads a file's records into memory
         /// </summary>
