@@ -146,14 +146,18 @@ namespace TrainSystem.Classes
             return records;
         }
 
-        public List<DisplayItem> Select(DisplayItem d)
+        public List<DisplayItem> Select(DisplayItem d, Type t)
         {
             List<DisplayItem> result = new List<DisplayItem>();
-            
+            if (d.CanSelect())
+            {
+                result = GetRelatedItems(selected, (RecordedItem)d, t);
+                selected.Add((RecordedItem)d);
+            }
             return result;
         }
 
-        private List<DisplayItem> GetRelatedItems(List<RecordedItem> recs, RecordedItem rec)
+        private List<DisplayItem> GetRelatedItems(List<RecordedItem> recs, RecordedItem rec, Type t)
         {
             List<DisplayItem> result = new List<DisplayItem>();
             foreach (RecordedItem r in recs)
@@ -162,7 +166,7 @@ namespace TrainSystem.Classes
                 {
                     foreach (ScheduleRecord s2 in r.GetRecords())
                     {
-                        if (!result.Contains(r) && s1.Equals(s2))
+                        if (!result.Contains(r) && s1.Equals(s2) && t == r.GetType())
                         {
                             result.Add(r);
                         }
