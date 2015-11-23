@@ -36,6 +36,8 @@ namespace TrainSystem.Classes
 
         public abstract void remove();
 
+        public abstract override string ToString();
+
         public override Boolean Equals(DisplayItem s)
         {
             if (this.id == s.GetId())

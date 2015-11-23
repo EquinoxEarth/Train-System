@@ -57,12 +57,17 @@ namespace TrainSystem.Classes
             return records;
         }
 
-        public void remove()
+        public override void remove()
         {
             foreach (ScheduleRecord s in records)
             {
                 s.remove();
             }
+        }
+
+        public override string ToString()
+        {
+            return name;
         }
     }
 }

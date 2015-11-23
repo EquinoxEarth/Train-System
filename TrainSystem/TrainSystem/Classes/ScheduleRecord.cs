@@ -9,11 +9,19 @@ namespace TrainSystem.Classes
     class ScheduleRecord: DisplayItem
     {
         private Boolean removed;
+        private Schedule schedule;
+        private Station station;
+        private Train train;
+        private Direction dir;
         private int time;
 
-        public ScheduleRecord(int time)
+        public ScheduleRecord(Schedule schedule, Station station, Train train, Direction dir, int time)
             : base(false)
         {
+            this.schedule = schedule;
+            this.station = station;
+            this.train = train;
+            this.dir = dir;
             this.removed = false;
         }
 
@@ -27,9 +35,19 @@ namespace TrainSystem.Classes
             return removed;
         }
 
-        public void remove()
+        public override void remove()
         {
             removed = true;
+        }
+
+        public string GetRecordToSave()
+        {
+            return schedule + "," + station + "," + train + "," + dir + "," + time.ToString();
+        }
+
+        public override string ToString()
+        {
+            return this.time.ToString();
         }
     }
 }

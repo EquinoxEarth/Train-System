@@ -26,7 +26,6 @@ namespace TrainSystem.Classes
         public TSystem()
         {
             selected = new List<RecordedItem>();
-            records = new List<ScheduleRecord>();
             trains = new List<Train>();
             schedules = new List<Schedule>();
             stations = new List<Station>();
@@ -125,15 +124,23 @@ namespace TrainSystem.Classes
 
         public Boolean AddRecord(String schedule, String station, String train, String direction, int time)
         {
-            ScheduleRecord rec = new ScheduleRecord(time);
-            GetOrCreateSchedule(schedule).AddRecord(rec);
-            GetOrCreateStation(station).AddRecord(rec);
-            GetOrCreateTrain(train).AddRecord(rec);
-            GetOrCreateDirection(direction).AddRecord(rec);
+            
+            Schedule s = GetOrCreateSchedule(schedule);
+            Station s2 = GetOrCreateStation(station);
+            Train t = GetOrCreateTrain(train);
+            Direction d = GetOrCreateDirection(direction);
+            ScheduleRecord rec = new ScheduleRecord(s, s2, t, d, time);
+            s.AddRecord(rec);
+            s2.AddRecord(rec);
+            t.AddRecord(rec);
+            d.AddRecord(rec);
             records.Add(rec);
             return true;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public List<ScheduleRecord> GetAllRecords()
         {
             foreach (ScheduleRecord s in records)
@@ -160,7 +167,7 @@ namespace TrainSystem.Classes
         public List<DisplayItem> Select(DisplayItem d, Type typeToShow, Boolean showTimes)
         {
             List<DisplayItem> result = new List<DisplayItem>();
-            if (d.CanSelect())
+            if (d != null && d.CanSelect())
             {
                 if (showTimes)
                 {
@@ -192,19 +199,7 @@ namespace TrainSystem.Classes
         private List<DisplayItem> GetRelatedItems(List<RecordedItem> recs, RecordedItem rec, Type t)
         {
             List<DisplayItem> result = new List<DisplayItem>();
-            foreach (RecordedItem r in recs)
-            {
-                foreach (ScheduleRecord s1 in rec.GetRecords())
-                {
-                    foreach (ScheduleRecord s2 in r.GetRecords())
-                    {
-                        if (!result.Contains(r) && s1.Equals(s2) && t == r.GetType())
-                        {
-                            result.Add(r);
-                        }
-                    }
-                }
-            }
+            
             return result;
         }
     }
