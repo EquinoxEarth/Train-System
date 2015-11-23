@@ -24,7 +24,19 @@ namespace TrainSystem.Classes
 
         public void AddRecord(ScheduleRecord s)
         {
-            records.Add(s);
+            Boolean inserted = false;
+            foreach (ScheduleRecord s2 in records)
+            {
+                if (!inserted && s2.GetTime() > s.GetTime())
+                {
+                    records.Insert(records.IndexOf(s2), s);
+                    inserted = true;
+                }
+            }
+            if (!inserted)
+            {
+                records.Add(s);
+            }            
         }
     }
 }
