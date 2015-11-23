@@ -60,7 +60,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Direction.cs" />
+    <Compile Include="Classes\DisplayItem.cs" />
     <Compile Include="Classes\FileManager.cs" />
+    <Compile Include="Classes\RecordedItem.cs" />
+    <Compile Include="Classes\Schedule.cs" />
+    <Compile Include="Classes\ScheduleRecord.cs" />
+    <Compile Include="Classes\Station.cs" />
+    <Compile Include="Classes\Train.cs" />
     <Compile Include="Classes\TSystem.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
