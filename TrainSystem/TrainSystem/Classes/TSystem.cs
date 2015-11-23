@@ -146,12 +146,44 @@ namespace TrainSystem.Classes
             return records;
         }
 
-        public List<DisplayItem> Select(DisplayItem d, Type t)
+        /// <summary>
+        /// Given a DisplayItem, a type, and a boolean representing whether or not 
+        /// the times should be shown it will return a List of DisplayItem objects of the type
+        /// that are related to what DisplayItem was selected and what has been selected before hand.
+        /// If the boolean is true it will display the records that are shared by all the selected DisplayItems.
+        /// </summary>
+        /// <param name="selected"></param>
+        /// <param name="typeToShow"></param>
+        /// <param name="showTimes"></param>
+        /// <returns></returns>
+
+        public List<DisplayItem> Select(DisplayItem selected, Type typeToShow, Boolean showTimes)
         {
             List<DisplayItem> result = new List<DisplayItem>();
             if (d.CanSelect())
             {
-                result = GetRelatedItems(selected, (RecordedItem)d, t);
+                if (showTimes)
+                {
+                    foreach (ScheduleRecord res in ((RecordedItem)d).GetRecords())
+                    {
+                        Boolean enter = true;
+                        foreach (RecordedItem r in selected)
+                        {
+                            if (!r.GetRecords().Contains(res))
+                            {
+                                enter = false;
+                            }
+                        }
+                        if (enter && !result.Contains(res))
+                        {
+                            result.Add(res);
+                        }
+                    }
+                }
+                else
+                {
+                    result = GetRelatedItems(selected, (RecordedItem)d, t);
+                }
                 selected.Add((RecordedItem)d);
             }
             return result;
