@@ -25,6 +25,10 @@ namespace TrainSystem.Classes
             this.removed = false;
         }
 
+        /// <summary>
+        /// Gets all the RecordedItem objects that are related to this ScheduleRecord and returns them.
+        /// </summary>
+        /// <returns></returns>
         public List<RecordedItem> GetRelated()
         {
             List<RecordedItem> result = new List<RecordedItem>();
@@ -50,11 +54,19 @@ namespace TrainSystem.Classes
             removed = true;
         }
 
+        /// <summary>
+        /// Returns a string that can be used in a sequential file.
+        /// </summary>
+        /// <returns></returns>
         public string GetRecordToSave()
         {
             return schedule + "," + station + "," + train + "," + dir + "," + time.ToString();
         }
 
+        /// <summary>
+        /// Returns the time in the 24 hour clock format.
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return (time / 60) + ": " + ((time % 60) / 10) + (time % 10) ;

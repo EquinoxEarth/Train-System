@@ -57,6 +57,9 @@ namespace TrainSystem.Classes
             return records;
         }
 
+        /// <summary>
+        /// Makes sure that all records associated with this RecordedItem are set to removed.
+        /// </summary>
         public override void remove()
         {
             foreach (ScheduleRecord s in records)

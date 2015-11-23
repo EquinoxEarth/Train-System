@@ -17,8 +17,6 @@ namespace TrainSystem.Classes
         private List<Schedule> schedules;
         private List<Station> stations;
         private List<Direction> directions;
-        private String mode;
-        private int step;
 
         /// <summary>
         /// Creates an instance of the Train Data Manager
@@ -30,8 +28,7 @@ namespace TrainSystem.Classes
             schedules = new List<Schedule>();
             stations = new List<Station>();
             directions = new List<Direction>();
-            mode = "Schedules";
-            step = 0;
+            records = new List<ScheduleRecord>();
         }
 
         /// <summary>
@@ -122,6 +119,17 @@ namespace TrainSystem.Classes
             return result;
         }
 
+        /// <summary>
+        /// Creates or gets the necessary schedule, station, train, direction, and scheduleRecord and
+        /// adds them all to their necessary lists.
+        /// </summary>
+        /// <param name="schedule"></param>
+        /// <param name="station"></param>
+        /// <param name="train"></param>
+        /// <param name="direction"></param>
+        /// <param name="time"></param>
+        /// <returns></returns>
+
         public Boolean AddRecord(String schedule, String station, String train, String direction, int time)
         {
             
@@ -198,7 +206,8 @@ namespace TrainSystem.Classes
 
         /// <summary>
         /// Returns a list of DisplayItem objects that are actually all RecordedItem objects that share similar
-        /// ScheduleRecord objects and are of the type provided.
+        /// ScheduleRecord objects and are of the type provided.  Is used by Select to get DisplayItem objects
+        /// that are relevant to what has been selected.
         /// </summary>
         /// <param name="t"></param>
         /// <returns></returns>
