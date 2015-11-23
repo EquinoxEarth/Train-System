@@ -15,5 +15,10 @@ namespace TrainSystem.Classes
         {
             this.name = name;
         }
+
+        public String GetName()
+        {
+            return name;
+        }
     }
 }
