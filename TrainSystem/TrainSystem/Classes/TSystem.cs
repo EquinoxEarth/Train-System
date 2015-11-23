@@ -133,5 +133,17 @@ namespace TrainSystem.Classes
             records.Add(rec);
             return true;
         }
+
+        public List<ScheduleRecord> GetAllRecords()
+        {
+            foreach (ScheduleRecord s in records)
+            {
+                if (s.IsRemoved())
+                {
+                    records.Remove(s);
+                }
+            }
+            return records;
+        }
     }
 }

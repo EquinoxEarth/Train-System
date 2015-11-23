@@ -45,6 +45,18 @@ namespace TrainSystem.Classes
             s.remove();
         }
 
+        public List<ScheduleRecord> GetRecords()
+        {
+            foreach (ScheduleRecord s in records)
+            {
+                if (s.IsRemoved())
+                {
+                    records.Remove(s);
+                }
+            }
+            return records;
+        }
+
         public void remove()
         {
             foreach (ScheduleRecord s in records)
