@@ -9,10 +9,17 @@ namespace TrainSystem.Classes
     class ScheduleRecord: DisplayItem
     {
         private Boolean removed;
-        public ScheduleRecord()
+        private int time;
+
+        public ScheduleRecord(int time)
             : base(false)
         {
             this.removed = false;
+        }
+
+        public int GetTime()
+        {
+            return time;
         }
     }
 }
