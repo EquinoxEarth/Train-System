@@ -146,7 +146,7 @@ namespace TrainSystem.Classes
             return records;
         }
 
-        public List<DisplayItem> Select(DisplayItem d, List<RecordedItem> recItems)
+        public List<DisplayItem> Select(DisplayItem d)
         {
             List<DisplayItem> result = new List<DisplayItem>();
             if (d.CanSelect())
