@@ -203,6 +203,22 @@ namespace TrainSystem.Classes
         }
 
         /// <summary>
+        /// Returns to the previous options for selections if possible.
+        /// </summary>
+        /// <returns></returns>
+
+        public List<DisplayItem> PreviousSelection()
+        {
+            if (selected.Count > 0)
+            {
+                RecordedItem r = selected[selected.Count - 1];
+                selected.Remove(r);
+                return GetRelatedItems(r.GetType());
+            }
+            return null;
+        }
+
+        /// <summary>
         /// Returns a list of DisplayItem objects that are actually all RecordedItem objects that share similar
         /// ScheduleRecord objects and are of the type provided.  Is used by Select to get DisplayItem objects
         /// that are relevant to what has been selected.
