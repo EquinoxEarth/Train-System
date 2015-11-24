@@ -72,7 +72,12 @@ namespace TrainSystem.Classes
                 sr.Close();
             }
         }
-
+        
+        /// <summary>
+        /// Saves all Records loaded in memory to the specified file
+        /// </summary>
+        /// <param name="fileName">Name of file for data to be saved to</param>
+        /// <returns></returns>
         public bool Save(string fileName)
         {
             // Create Empty Writer (For Scope reasons) //

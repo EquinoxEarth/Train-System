@@ -129,7 +129,6 @@ namespace TrainSystem.Classes
         /// <param name="direction"></param>
         /// <param name="time"></param>
         /// <returns></returns>
-
         public Boolean AddRecord(String schedule, String station, String train, String direction, int time)
         {
             
@@ -171,7 +170,6 @@ namespace TrainSystem.Classes
         /// <param name="typeToShow"></param>
         /// <param name="showTimes"></param>
         /// <returns></returns>
-
         public List<DisplayItem> Select(DisplayItem d, Type typeToShow, Boolean showTimes)
         {
             List<DisplayItem> result = new List<DisplayItem>();
@@ -211,7 +209,6 @@ namespace TrainSystem.Classes
         /// </summary>
         /// <param name="t"></param>
         /// <returns></returns>
-
         private List<DisplayItem> GetRelatedItems(Type t)
         {
             List<DisplayItem> result = new List<DisplayItem>();
