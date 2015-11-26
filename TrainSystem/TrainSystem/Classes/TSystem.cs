@@ -141,7 +141,7 @@ namespace TrainSystem.Classes
         /// <param name="direction"></param>
         /// <param name="time"></param>
         /// <returns></returns>
-        public Record AddRecord(String schedule, String station, String train, String direction, int time)
+        private Record AddRecord(String schedule, String station, String train, String direction, int time)
         {
             
             Schedule s = GetOrCreateSchedule(schedule);
