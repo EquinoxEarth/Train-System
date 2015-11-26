@@ -28,10 +28,22 @@ namespace TrainSystem.Classes
             removed = true;
         }
 
+        /// <summary>
+        /// Returns the record as it will be written to the file
+        /// </summary>
+        /// <returns></returns>
         public abstract String GetRecordToSave();
 
+        /// <summary>
+        /// How the Record will be displayed
+        /// </summary>
+        /// <returns></returns>
         public abstract String ToString();
-
+        
+        /// <summary>
+        /// Used to help sort the records.
+        /// </summary>
+        /// <returns></returns>
         public abstract int SortValue();
     }
 }

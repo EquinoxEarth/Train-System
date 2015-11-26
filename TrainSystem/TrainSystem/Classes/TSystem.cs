@@ -115,6 +115,11 @@ namespace TrainSystem.Classes
             return result;
         }
 
+        /// <summary>
+        /// Given a record as a comma delimited string it will add the record
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
         public override bool AddRecord(string str)
         {
             string[] fields = str.Split(',');

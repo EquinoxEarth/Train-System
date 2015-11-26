@@ -8,7 +8,6 @@ namespace TrainSystem.Classes
 {
     abstract class DisplayItem
     {
-        private Boolean canSelect;
         private int id;
         private static int currentId;
 
@@ -20,9 +19,8 @@ namespace TrainSystem.Classes
             currentId = 0;
         }
 
-        public DisplayItem(Boolean canSelect)
+        public DisplayItem()
         {
-            this.canSelect = canSelect;
             this.id = DisplayItem.currentId;
             DisplayItem.currentId++;
         }
@@ -30,16 +28,6 @@ namespace TrainSystem.Classes
         public int GetId()
         {
             return this.id;
-        }
-
-        /// <summary>
-        /// Returns whether or not this class can be selected and used to narrow the possiblities of records
-        /// that apply.  Whether or not this is a RecordedItem.
-        /// </summary>
-        /// <returns></returns>
-        public Boolean CanSelect()
-        {
-            return canSelect;
         }
 
         public abstract void remove();

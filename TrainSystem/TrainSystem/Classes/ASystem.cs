@@ -53,14 +53,27 @@ namespace TrainSystem.Classes
         public List<DisplayItem> Select(DisplayItem d, Type typeToShow, Boolean showTimes)
         {
             List<DisplayItem> result = new List<DisplayItem>();
-            if (d != null && d.CanSelect())
+
+            //If the item selected is not null and is a RecordedItem
+            if (d != null && d is RecordedItem)
             {
+                //Adds the RecordedItem object to the list of selected RecordedItem objects
+                selected.Add((RecordedItem)d);
+
+                //If showTimes is true then you will show the records that are shared by selected
+                //If it is false then just show the related DisplayItem objects of type typeToShow
                 if (showTimes)
                 {
-                    selected.Add((RecordedItem)d);
+
+                    //For every Record in the Records of the last selected RecordedItem object
                     foreach (Record res in ((RecordedItem)d).GetRecords())
                     {
+                        //boolean value used to make sure only Record objects that are common
+                        //among the RecordedItem objects
                         Boolean enter = true;
+
+                        //Make sure every Record is contained within every RecordedItem object in selected
+                        //Record objects list
                         foreach (RecordedItem r in selected)
                         {
                             if (!r.GetRecords().Contains(res))
@@ -68,6 +81,8 @@ namespace TrainSystem.Classes
                                 enter = false;
                             }
                         }
+
+                        //if it turns out the record is contained in every RecordedItem in selected's Record object list
                         if (enter && !result.Contains(res))
                         {
                             result.Add(res);
@@ -86,7 +101,6 @@ namespace TrainSystem.Classes
         /// Returns to the previous options for selections if possible.
         /// </summary>
         /// <returns></returns>
-
         public List<DisplayItem> PreviousSelection()
         {
             if (selected.Count > 0)
@@ -108,6 +122,9 @@ namespace TrainSystem.Classes
         private List<DisplayItem> GetRelatedItems(Type t)
         {
             List<DisplayItem> result = new List<DisplayItem>();
+
+            //For every Record in records check to see if it has a RecordedItem object that is of the type t
+            //and part of the selected RecordedItem object list
             foreach (Record s in records)
             {
                 foreach (RecordedItem r in selected)
