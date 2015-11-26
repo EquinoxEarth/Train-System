@@ -11,8 +11,6 @@ namespace TrainSystem.Classes
     /// </summary>
     class TSystem: ASystem
     {
-        private List<RecordedItem> selected;
-        private List<ScheduleRecord> records;
         private List<Train> trains;
         private List<Schedule> schedules;
         private List<Station> stations;
@@ -23,12 +21,10 @@ namespace TrainSystem.Classes
         /// </summary>
         public TSystem()
         {
-            selected = new List<RecordedItem>();
             trains = new List<Train>();
             schedules = new List<Schedule>();
             stations = new List<Station>();
             directions = new List<Direction>();
-            records = new List<ScheduleRecord>();
         }
 
         /// <summary>
@@ -124,7 +120,7 @@ namespace TrainSystem.Classes
             string[] fields = str.Split(',');
             if (fields.Length == 5)
             {
-                this.AddRecord(fields[0], fields[1], fields[2], fields[3], Convert.ToInt32(fields[4]));
+                base.AddToRecords(this.AddRecord(fields[0], fields[1], fields[2], fields[3], Convert.ToInt32(fields[4])));
                 return true;
             }
             return false;
@@ -140,7 +136,7 @@ namespace TrainSystem.Classes
         /// <param name="direction"></param>
         /// <param name="time"></param>
         /// <returns></returns>
-        public Boolean AddRecord(String schedule, String station, String train, String direction, int time)
+        public Record AddRecord(String schedule, String station, String train, String direction, int time)
         {
             
             Schedule s = GetOrCreateSchedule(schedule);
@@ -152,8 +148,7 @@ namespace TrainSystem.Classes
             s2.AddRecord(rec);
             t.AddRecord(rec);
             d.AddRecord(rec);
-            records.Add(rec);
-            return true;
+            return rec;
         }
     }
 }

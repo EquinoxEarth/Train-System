@@ -55,7 +55,7 @@ namespace TrainSystem.Classes
 
         /// <summary>
         /// When ever this method is called it checks to see if any of the records in its list have been removed
-        /// and if any are they are removed from this objects List of ScheduleRecord objects.
+        /// and if any are they are removed from this objects List of Record objects.
         /// </summary>
         /// <returns></returns>
         public List<Record> GetRecords()

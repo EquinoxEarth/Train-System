@@ -19,6 +19,11 @@ namespace TrainSystem.Classes
 
         public abstract Boolean AddRecord(String str);
 
+        public void AddToRecords(Record r)
+        {
+            records.Add(r);
+        }
+
         /// <summary>
         /// Gets all the records while removing the ones that have been removed previously.
         /// </summary>
@@ -95,7 +100,7 @@ namespace TrainSystem.Classes
 
         /// <summary>
         /// Returns a list of DisplayItem objects that are actually all RecordedItem objects that share similar
-        /// ScheduleRecord objects and are of the type provided.  Is used by Select to get DisplayItem objects
+        /// Record objects and are of the type provided.  Is used by Select to get DisplayItem objects
         /// that are relevant to what has been selected.
         /// </summary>
         /// <param name="t"></param>
