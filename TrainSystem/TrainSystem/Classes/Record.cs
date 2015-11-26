@@ -33,12 +33,6 @@ namespace TrainSystem.Classes
         /// </summary>
         /// <returns></returns>
         public abstract String GetRecordToSave();
-
-        /// <summary>
-        /// How the Record will be displayed
-        /// </summary>
-        /// <returns></returns>
-        public abstract String ToString();
         
         /// <summary>
         /// Used to help sort the records.

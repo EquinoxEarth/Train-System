@@ -42,7 +42,7 @@ namespace TrainSystem.Classes
             return time;
         }
 
-        public abstract int SortValue()
+        public override int SortValue()
         {
             return time;
         }

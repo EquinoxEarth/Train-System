@@ -32,7 +32,7 @@ namespace TrainSystem.Classes
 
         public abstract void Remove();
 
-        public abstract override string ToString();
+        public abstract string ToString();
 
         /// <summary>
         /// Used for comparing all DisplayItems to each other.
