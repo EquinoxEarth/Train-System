@@ -30,7 +30,7 @@ namespace TrainSystem.Classes
             return this.id;
         }
 
-        public abstract void remove();
+        public abstract void Remove();
 
         public abstract override string ToString();
 

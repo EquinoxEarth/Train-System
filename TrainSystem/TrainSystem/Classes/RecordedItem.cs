@@ -16,7 +16,7 @@ namespace TrainSystem.Classes
         private List<Record> records;
 
         public RecordedItem(String name)
-            : base(true)
+            : base()
         {
             this.name = name;
         }
@@ -50,7 +50,7 @@ namespace TrainSystem.Classes
         public void RemoveRecord(Record s)
         {
             records.Remove(s);
-            s.remove();
+            s.Remove();
         }
 
         /// <summary>
@@ -73,11 +73,11 @@ namespace TrainSystem.Classes
         /// <summary>
         /// Makes sure that all records associated with this RecordedItem are set to removed.
         /// </summary>
-        public override void remove()
+        public override void Remove()
         {
             foreach (Record s in records)
             {
-                s.remove();
+                s.Remove();
             }
         }
 

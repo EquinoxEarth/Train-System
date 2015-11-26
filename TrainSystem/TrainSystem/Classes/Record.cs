@@ -11,7 +11,7 @@ namespace TrainSystem.Classes
         private Boolean removed;
 
         public Record()
-            : base(false)
+            : base()
         {
 
         }
@@ -23,7 +23,7 @@ namespace TrainSystem.Classes
             return removed;
         }
 
-        public override void remove()
+        public override void Remove()
         {
             removed = true;
         }

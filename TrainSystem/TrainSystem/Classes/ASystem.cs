@@ -24,6 +24,15 @@ namespace TrainSystem.Classes
             records.Add(r);
         }
 
+        public void RemoveRecord(Record r)
+        {
+            if (records.Contains(r))
+            {
+                r.Remove();
+                records.Remove(r);
+            }
+        }
+
         /// <summary>
         /// Gets all the records while removing the ones that have been removed previously.
         /// </summary>
