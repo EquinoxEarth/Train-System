@@ -53,7 +53,7 @@ namespace TrainSystem.Classes
         /// <returns></returns>
         public override Boolean Equals(Object s)
         {
-            if (s.GetType() == typeof(DisplayItem) && this.id == ((DisplayItem)s).GetId())
+            if (s is DisplayItem && this.id == ((DisplayItem)s).GetId())
             {
                 return true;
             }

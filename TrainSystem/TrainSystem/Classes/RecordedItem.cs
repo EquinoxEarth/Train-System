@@ -13,7 +13,7 @@ namespace TrainSystem.Classes
     class RecordedItem: DisplayItem
     {
         private String name;
-        private List<ScheduleRecord> records;
+        private List<Record> records;
 
         public RecordedItem(String name)
             : base(true)
@@ -30,12 +30,12 @@ namespace TrainSystem.Classes
         /// Adds the records with the earlier records being earlier in the list.
         /// </summary>
         /// <param name="s"></param>
-        public void AddRecord(ScheduleRecord s)
+        public void AddRecord(Record s)
         {
             Boolean inserted = false;
-            foreach (ScheduleRecord s2 in records)
+            foreach (Record s2 in records)
             {
-                if (!inserted && s2.GetTime() > s.GetTime())
+                if (!inserted && s2.SortValue() > s.SortValue())
                 {
                     records.Insert(records.IndexOf(s2), s);
                     inserted = true;
@@ -47,7 +47,7 @@ namespace TrainSystem.Classes
             }            
         }
 
-        public void RemoveRecord(ScheduleRecord s)
+        public void RemoveRecord(Record s)
         {
             records.Remove(s);
             s.remove();
@@ -58,9 +58,9 @@ namespace TrainSystem.Classes
         /// and if any are they are removed from this objects List of ScheduleRecord objects.
         /// </summary>
         /// <returns></returns>
-        public List<ScheduleRecord> GetRecords()
+        public List<Record> GetRecords()
         {
-            foreach (ScheduleRecord s in records)
+            foreach (Record s in records)
             {
                 if (s.IsRemoved())
                 {
@@ -75,7 +75,7 @@ namespace TrainSystem.Classes
         /// </summary>
         public override void remove()
         {
-            foreach (ScheduleRecord s in records)
+            foreach (Record s in records)
             {
                 s.remove();
             }

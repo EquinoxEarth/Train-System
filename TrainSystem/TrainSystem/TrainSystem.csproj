@@ -60,9 +60,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\ASystem.cs" />
     <Compile Include="Classes\Direction.cs" />
     <Compile Include="Classes\DisplayItem.cs" />
     <Compile Include="Classes\FileManager.cs" />
+    <Compile Include="Classes\Record.cs" />
     <Compile Include="Classes\RecordedItem.cs" />
     <Compile Include="Classes\Schedule.cs" />
     <Compile Include="Classes\ScheduleRecord.cs" />

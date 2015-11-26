@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace TrainSystem.Classes
 {
-    class ScheduleRecord: DisplayItem
+    class ScheduleRecord: Record
     {
-        private Boolean removed;
         private Schedule schedule;
         private Station station;
         private Train train;
@@ -16,20 +15,19 @@ namespace TrainSystem.Classes
         private int time;
 
         public ScheduleRecord(Schedule schedule, Station station, Train train, Direction dir, int time)
-            : base(false)
+            : base()
         {
             this.schedule = schedule;
             this.station = station;
             this.train = train;
             this.dir = dir;
-            this.removed = false;
         }
 
         /// <summary>
         /// Gets all the RecordedItem objects that are related to this ScheduleRecord and returns them.
         /// </summary>
         /// <returns></returns>
-        public List<RecordedItem> GetRelated()
+        public override List<RecordedItem> GetRelated()
         {
             List<RecordedItem> result = new List<RecordedItem>();
             result.Add(schedule);
@@ -48,21 +46,16 @@ namespace TrainSystem.Classes
             return time;
         }
 
-        public Boolean IsRemoved()
+        public abstract int SortValue()
         {
-            return removed;
-        }
-
-        public override void remove()
-        {
-            removed = true;
+            return time;
         }
 
         /// <summary>
         /// Returns a string that can be used in a sequential file.
         /// </summary>
         /// <returns></returns>
-        public string GetRecordToSave()
+        public override string GetRecordToSave()
         {
             return schedule + "," + station + "," + train + "," + dir + "," + time.ToString();
         }

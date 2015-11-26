@@ -12,14 +12,14 @@ namespace TrainSystem.Classes
     {
         // SCHEMA FOR FILE: Schedule, Station, Train, Direction, Time //
 
-        private TSystem trainSystem;
+        private ASystem sys;
 
         /// <summary>
         /// Creates an instance of the File Manager
         /// </summary>
-        public FileManager()
+        public FileManager(ASystem sys)
         {
-            
+            this.sys = sys;
         }
 
         /// <summary>
@@ -44,10 +44,13 @@ namespace TrainSystem.Classes
                 while (record != null)
                 {
                     // Split the Record into Fields //
-                    string[] fields = record.Split(',');
+                    //string[] fields = record.Split(',');
 
                     // Add Record to TrainSystem
-                    trainSystem.AddRecord(fields[0], fields[1], fields[2], fields[3], Convert.ToInt32(fields[4]));
+                    if (!sys.AddRecord(record))
+                    {
+                        return false;
+                    }
 
                     // Grab the next Record //
                     record = sr.ReadLine();
@@ -90,8 +93,8 @@ namespace TrainSystem.Classes
                 sw = new StreamWriter("./" + fileName + ".csv");
 
                 // Write all Records to file //
-                List<ScheduleRecord> recordList = trainSystem.GetAllRecords();
-                foreach (ScheduleRecord record in recordList)
+                List<Record> recordList = sys.GetAllRecords();
+                foreach (Record record in recordList)
                 {
                     // Grab string for writing (INCASE WE NEED THIS TO BE EDITED) //
                     string line = record.GetRecordToSave();
