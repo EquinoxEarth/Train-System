@@ -33,12 +33,12 @@ namespace TrainSystem.Classes
             StreamReader sr = null;
 
             // Set Path to the Users MyDocuments folder //
-            string path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDoc‌​uments), "Train-System", "data.csv");
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
             // Try Catch to find any file errors
             try {
                 // Create the Reader //
-                sr = new StreamReader(path);
+                sr = new StreamReader(path + "/trainSystem.csv");
 
                 // Move cursor to first Record //
                 string record = sr.ReadLine();
@@ -90,13 +90,13 @@ namespace TrainSystem.Classes
             StreamWriter sw = null;
 
             // Set Path to the Users MyDocuments folder //
-            string path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDoc‌​uments), "Train-System", "data.csv");
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
             // Try Catch to find any file errors //
             try
             {
                 // Create the Writer (NON APPENDING, IS THIS AN ISSUE? //
-                sw = new StreamWriter(path);
+                sw = new StreamWriter(path + "/trainSystem.csv");
 
                 // Write all Records to file //
                 List<Record> recordList = sys.GetAllRecords();
