@@ -27,15 +27,18 @@ namespace TrainSystem.Classes
         /// </summary>
         /// <param name="fileName">Name of file to be loaded</param>
         /// <returns>Whether or not the file loaded</returns>
-        public bool Load(string fileName)
+        public bool Load()
         {
             // Create Empty Reader (For Scope reasons) //
             StreamReader sr = null;
 
+            // Set Path to the Users MyDocuments folder //
+            string path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDoc‌​uments), "Train-System", "data.csv");
+
             // Try Catch to find any file errors
             try {
                 // Create the Reader //
-                sr = new StreamReader("./" + fileName + ".csv");
+                sr = new StreamReader(path);
 
                 // Move cursor to first Record //
                 string record = sr.ReadLine();
@@ -86,11 +89,14 @@ namespace TrainSystem.Classes
             // Create Empty Writer (For Scope reasons) //
             StreamWriter sw = null;
 
+            // Set Path to the Users MyDocuments folder //
+            string path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDoc‌​uments), "Train-System", "data.csv");
+
             // Try Catch to find any file errors //
             try
             {
                 // Create the Writer (NON APPENDING, IS THIS AN ISSUE? //
-                sw = new StreamWriter("./" + fileName + ".csv");
+                sw = new StreamWriter(path);
 
                 // Write all Records to file //
                 List<Record> recordList = sys.GetAllRecords();
